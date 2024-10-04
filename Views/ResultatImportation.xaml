@@ -1,0 +1,171 @@
+﻿<dx:ThemedWindow x:Class="AGB_AQSI_ExcelTool.Views.ResultatImportation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:AGB_AQSI_ExcelTool.ViewModels"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             mc:Ignorable="d"
+             xmlns:dxui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+             Width="{x:Static SystemParameters.FullPrimaryScreenWidth}" 
+             Height="{x:Static SystemParameters.FullPrimaryScreenHeight}"
+              WindowStartupLocation="CenterScreen">
+
+    <!-- Background Image -->
+    <dx:ThemedWindow.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Assets/Images/bg.png" Stretch="UniformToFill"/>
+    </dx:ThemedWindow.Background>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="120,0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="70" />
+
+            </Grid.RowDefinitions>
+
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Foreground="#9797B8" Text="Demandes En Cours" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10" />
+            </StackPanel>
+
+            <dxg:GridControl IsEnabled="{Binding IsActive}" Background="#50F0F8FF" ItemsSource="{Binding DemandesAf}" x:Name="DemandesGrid"  Grid.Row="1" SelectionMode="MultipleRow" Margin="0,0,10,10" VerticalAlignment="Stretch" MaxHeight="200">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="ID" Header="ID"  Width="80" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Titre" Header="Titre"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Init" Header="Initiateur"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="RespReal" Header="Responsable de realisation"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn FieldName="Etat" Header="Etat"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Type" Header="Type demande"  Width="*">
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="NomTesteur" Header="Testeur"  Width="*">
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+
+                </dxg:GridControl.Columns>
+            </dxg:GridControl>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="2">
+                <TextBlock Foreground="#9797B8" Text="Demandes non affectées" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10" />
+            </StackPanel>
+            <dxg:GridControl IsEnabled="{Binding IsActive}" Background="#50F0F8FF" ItemsSource="{Binding DemandesNonAf}" x:Name="DemandesNonAfGrid"  Grid.Row="3"
+        Margin="0,0,10,10" VerticalAlignment="Stretch" MaxHeight="300">
+                <dxg:GridControl.BandGeneratorStyle>
+                    <dxg:DefaultStyle/>
+                </dxg:GridControl.BandGeneratorStyle>
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="ID" Header="ID"  Width="80" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Titre" Header="Titre"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Init" Header="Initiateur"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="RespReal" Header="Responsable de realisation"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn FieldName="Etat" Header="Etat"  Width="*" >
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Type" Header="Type demande"  Width="*">
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn x:Name="gridColumn" FieldName="NomTesteur" Header="Testeur" Width="*">
+                        <dxg:GridColumn.CellTemplate>
+                            <DataTemplate>
+                                <dxe:ComboBoxEdit 
+                                    ItemsSource="{Binding DataContext.Testeurs, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    SelectedItem="{Binding NomTesteur, Mode=TwoWay}" 
+                                    Name="PART_Editor"  
+                                    Width="150" 
+                                    Height="30"
+                                    IsTextEditable="False"
+                            />
+                            </DataTemplate>
+                        </dxg:GridColumn.CellTemplate>
+                        <dxg:GridColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Testeur" FontWeight="Bold" />
+                            </DataTemplate>
+                        </dxg:GridColumn.HeaderTemplate>
+                    </dxg:GridColumn>
+                </dxg:GridControl.Columns>
+            </dxg:GridControl>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="4" Margin="0,10,0,10">
+                <dx:SimpleButton Click="AffectDemandes" Height="40"  Style="{StaticResource ImportButton}" IsEnabled="{Binding IsActive}">
+                    <TextBlock Text="Affecter" FontWeight="SemiBold" FontSize="16"/>
+                </dx:SimpleButton>
+                <dx:SimpleButton Width="160" Margin="10,0,0,0" Click="Exporter" Height="40" Style="{StaticResource ImportButton}" IsEnabled="{Binding IsInactive}" >
+                    <TextBlock Text="Exporter (.xlsx)" FontWeight="SemiBold" FontSize="16"/>
+                </dx:SimpleButton>
+            </StackPanel>
+        </Grid>
+</dx:ThemedWindow>
