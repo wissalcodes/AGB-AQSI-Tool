@@ -18,7 +18,6 @@ namespace AGB_AQSI_ExcelTool.ViewModels
             {
                 if (_states != value)
                 {
-                    // Unsubscribe from previous states
                     if (_states != null)
                     {
                         UnsubscribeFromStatePropertyChanges();
@@ -27,7 +26,7 @@ namespace AGB_AQSI_ExcelTool.ViewModels
                     _states = value;
                     OnPropertyChanged(nameof(States));
                     SubscribeToStatePropertyChanges();
-                    UpdateIsStateSelected(); // Update IsStateSelected when the States collection changes
+                    UpdateIsStateSelected(); 
                 }
             }
         }
@@ -43,7 +42,6 @@ namespace AGB_AQSI_ExcelTool.ViewModels
 
                     _path = value;
                     OnPropertyChanged(nameof(path));
-                    // update the value of IsPathSelected
                     UpdateIsPathSelected();
                 }
             }
@@ -143,7 +141,7 @@ namespace AGB_AQSI_ExcelTool.ViewModels
         {
             if (e.PropertyName == nameof(State.IsChecked))
             {
-                UpdateIsStateSelected();  // Update IsStateSelected when any state's IsChecked changes
+                UpdateIsStateSelected();  
             }
         }
         private void SubscribeToStatePropertyChanges()

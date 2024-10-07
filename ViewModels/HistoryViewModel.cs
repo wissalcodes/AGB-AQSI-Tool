@@ -11,7 +11,7 @@ namespace AGB_AQSI_ExcelTool.ViewModels
 
         public ObservableCollection<Affectation> Affectations { get; set; }
 
-        public DatabaseService dbService;
+        private readonly DatabaseService dbService;
         public HistoryViewModel() {   
          dbService = new DatabaseService();
             // Fetch all affectations from the database

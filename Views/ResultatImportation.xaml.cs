@@ -93,8 +93,8 @@ namespace AGB_AQSI_ExcelTool.Views
 
                     MessageBox.Show($"Les demandes affectées ont été exportées à {filePath}");
 
+                    gridControl.ItemsSource = viewModel.DemandesNonAf;
                     this.Close();
-                    //gridControl.ItemsSource = viewModel.DemandesNonAf;
                 }
                 catch (Exception ex)
                 {

@@ -64,13 +64,16 @@ namespace AGB_AQSI_ExcelTool.Views
 
             if (selectedTesteur != null)
             {
-                // Get the selected tester's username to delete
-                var username = selectedTesteur.Name; // Assuming the Testeur class has a Username property
+                // Confirm deletion
+                var result = MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce testeur ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    // get the selected tester's username to delete
+                    var username = selectedTesteur.Name; 
 
-                // Call the ViewModel method to delete the selected tester
-                vm.SupprimerTesteur(username);
-
-                MessageBox.Show("Testeur supprimé avec succès");
+                    vm.SupprimerTesteur(username);
+                    MessageBox.Show("Testeur supprimé avec succès");
+                }
             }
             else
             {
@@ -80,15 +83,23 @@ namespace AGB_AQSI_ExcelTool.Views
 
         public void SupprimerTesteurs_Click(object sender, RoutedEventArgs e)
         {
-            // check if the grid has any selected items
+            // Check if the grid has any selected items
             var selectedTesteurs = TesteursGrid.SelectedItems.Cast<Testeur>().ToList();
 
             if (selectedTesteurs.Any())
             {
-                // Get the list of selected tester usernames to delete
-                var usernames = selectedTesteurs.Select(t => t.Name);
-                var joinedUsernames = string.Join(",", usernames);
-                vm.SupprimerPlusieursTesteurs(joinedUsernames);            }
+                // Confirm deletion
+                var result = MessageBox.Show("Êtes-vous sûr de vouloir supprimer ces testeurs ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    // get the list of selected tester usernames to delete
+                    var usernames = selectedTesteurs.Select(t => t.Name);
+                    var joinedUsernames = string.Join(",", usernames);
+                    vm.SupprimerPlusieursTesteurs(joinedUsernames);
+
+                    MessageBox.Show("Testeurs supprimés avec succès");
+                }
+            }
             else
             {
                 MessageBox.Show("Veuillez sélectionner des testeurs à supprimer");

@@ -1,8 +1,8 @@
 ﻿using AGB_AQSI_ExcelTool.ViewModels;
 using System.Windows;
 using DevExpress.Xpf.Dialogs;
-using DevExpress.DataAccess.Excel;                             // For ExcelDataSource and ExcelSourceOptions
-using FieldInfo = DevExpress.DataAccess.Excel.FieldInfo;       // For export options 
+using DevExpress.DataAccess.Excel;                             
+using FieldInfo = DevExpress.DataAccess.Excel.FieldInfo;       
 using AGB_AQSI_ExcelTool.Models;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -62,8 +62,6 @@ namespace AGB_AQSI_ExcelTool.Views
             {
                 var etatValue = (string)row["Etat"];
                 // Check if Etat matches any selected state with isChecked true
-               
-
                  int idDemande = Convert.ToInt32(row["ID"]);
                 Testeur testeur = VM.dbService.GetTesteurNomByDemandeId(idDemande);
 
@@ -82,12 +80,13 @@ namespace AGB_AQSI_ExcelTool.Views
                 }
               
             }
-            // Navigate to ResultatImportation page
+            // navigate to ResultatImportation page
             ResultatImportationViewModel vm = new ResultatImportationViewModel(filteredDemandes);
             ResultatImportation resultsWindow = new ResultatImportation(vm);
-            resultsWindow.Show();  // Show the window
+            resultsWindow.Show(); 
         }
 
+        // method to display file path dialog
         public void SelectFile(object sender, RoutedEventArgs e)
         {
             DXOpenFileDialog fileDialog = new DXOpenFileDialog
@@ -95,7 +94,6 @@ namespace AGB_AQSI_ExcelTool.Views
                 Filter = "Excel Files (*.xlsx, *.xls)|*.xlsx;*.xls|All Files (*.*)|*.*",
                 Title = "Sélectionnez le fichier Excel à importer"
             };
-            //options.SuppressEmptyStrings = true;
             fileDialog.ShowDialog();
             if (string.IsNullOrEmpty(fileDialog.FileName) && string.IsNullOrEmpty(VM.path))
             {
@@ -122,20 +120,19 @@ namespace AGB_AQSI_ExcelTool.Views
             {
                 excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
             }
-            // Configure the reader to treat the first row as a header and skip it
+            // configure the reader to treat the first row as a header and skip it
             var config = new ExcelDataSetConfiguration
             {
                 ConfigureDataTable = (_) => new ExcelDataTableConfiguration
                 {
-                    UseHeaderRow = true // Skips the first row as header
+                    UseHeaderRow = true
                 }
             };
 
             // Read the data into a DataSet
             var dataSet = excelReader.AsDataSet(config);
             excelReader.Close();
-
-            // Get the first table from the DataSet (first sheet)
+            // get the first table from the DataSet (first sheet)
             return dataSet.Tables[0];
         }
 

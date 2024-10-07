@@ -55,10 +55,8 @@ namespace AGB_AQSI_ExcelTool.Models
             _dateCreation = dateCreation;
         }
 
-        // INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // Method to trigger the PropertyChanged event
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

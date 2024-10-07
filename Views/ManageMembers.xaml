@@ -130,7 +130,7 @@
             </Grid>
         </Border>
         <ListBox  
-            Grid.Row="5" ItemsSource="{Binding Testeurs}" x:Name="TesteursGrid" Margin="0,0,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="350" Background="Transparent" BorderBrush="Transparent" SelectionMode="Multiple" SelectedIndex="-1">
+            Grid.Row="5" ItemsSource="{Binding Testeurs}" x:Name="TesteursGrid" Margin="0,0,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="350" Background="Transparent" BorderBrush="Transparent" SelectionMode="Multiple" SelectedIndex="0">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -143,8 +143,8 @@
                                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                                 </Border>
                                 <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="#90FF9800"/>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#120E30"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
