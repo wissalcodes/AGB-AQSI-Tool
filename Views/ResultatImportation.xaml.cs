@@ -84,10 +84,10 @@ namespace AGB_AQSI_ExcelTool.Views
                         MessageBox.Show("Aucune donnée à exporter.");
                     }
 
-                    // Temporarily set the filtered data source to the grid for export
+                    // temporarily set the filtered data source to the grid for export
                     gridControl.ItemsSource = filteredRows;
 
-                    // Perform the export to XLSX
+                    // perform the export to XLSX
                     string filePath = Path.Combine(fileDialog.SelectedPath, "Affectation.xlsx");
                     gridControl.View.ExportToXlsx(filePath);
 

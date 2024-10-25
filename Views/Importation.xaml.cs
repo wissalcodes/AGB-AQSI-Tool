@@ -71,7 +71,7 @@ namespace AGB_AQSI_ExcelTool.Views
                         idDemande,
                         (string)row["Titre"],
                         (string)row["Initiateur"],
-                        (string)row["Responsable realisation"],
+                        (string)row["Responsable réalisation"],
                         (string)row["Etat"],
                         (string)row["Type demande"],
                         testeur != null ? testeur.Name : "Sélectionner", 

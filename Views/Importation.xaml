@@ -19,12 +19,12 @@
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Margin" Value="1" />
-            <Setter Property="Background" Value="#80626189"/>
+            <Setter Property="Background" Value="#80FFE08A"/>
 
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Foreground" Value="#110E30" />
+            <Setter Property="Foreground" Value="#F0F4F8" />
         </Style>
         <Style TargetType="CheckBox">
             <Setter Property="FontSize" Value="18" />
@@ -45,7 +45,7 @@
             <Button Background="Transparent" BorderBrush="Transparent" Click="BackToMainView_Click" Padding="10,0,10,0">
                 <Image Source="pack://application:,,,/Assets/Images/chevron_left.png" Stretch="UniformToFill" Width="30" Height="30"/>
             </Button>
-            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="White" Padding="0,0,0,0" Text="Importer Un Fichier" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="#004A86" Padding="0,0,0,0" Text="Importer Un Fichier" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </StackPanel>
 
         <!-- Choice Button and Path -->
@@ -59,21 +59,25 @@
             </dx:SimpleButton>
             <Border Style="{StaticResource PathStyle}"  Height="40" Grid.Column="1" Margin="10,0,0,0"  >
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-                    <TextBlock Text="{Binding path}" Padding="20,0,0,0" FontSize="16" FontWeight="SemiBold" Foreground="#FF9800"/>
+                    <TextBlock Text="{Binding path}" Padding="20,0,0,0" FontSize="16" FontWeight="SemiBold" Foreground="#004A86"/>
                     </StackPanel>
                 </Border>
             </Grid>
             <!-- States Section -->
             <StackPanel  MaxHeight="450"  Grid.Row="2" Margin="0,30" IsEnabled="{Binding IsPathSelected}" >
-                <TextBlock Foreground="White" Text="États des demandes du fichier XLSX" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10" />
-                <TextBlock Foreground="White" Text="Sélectionnez les états des demandes importées depuis le fichier." FontSize="14" Margin="0,0,0,20" />
+            <TextBlock Foreground="#6A8FB1" Text="États des demandes du fichier XLSX" FontSize="20" FontWeight="DemiBold" Margin="0,0,0,10" />
+            <TextBlock Foreground="#6A8FB1" Text="Sélectionnez les états des demandes importées depuis le fichier." FontSize="14" Margin="0,0,0,20" />
                 <ScrollViewer MaxHeight="400">
                     <ItemsControl ItemsSource="{Binding States}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Title}" />
-                                </StackPanel>
+                                <CheckBox IsChecked="{Binding IsChecked}">
+                                    <CheckBox.Content>
+                                        <TextBlock Text="{Binding Title}" Foreground="#004A86" FontWeight="SemiBold" Padding="15,0,0,0"/>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

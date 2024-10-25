@@ -18,27 +18,17 @@
 
         <Style TargetType="dxe:TextEdit">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="AliceBlue" />
+            <Setter Property="Foreground" Value="#6A8FB1" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="BorderBrush" Value="Transparent" />
 
-
         </Style>
-        <Style TargetType="Border" x:Key="PathStyle">
-            <Setter Property="CornerRadius" Value="5" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Margin" Value="1" />
-            <Setter Property="Background" Value="#80626189"/>
-
-        </Style>
+      
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Foreground" Value="#110E30" />
         </Style>
-        <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Foreground" Value="AliceBlue" />
-        </Style>
+        
     </dxui:NavigationPage.Resources>
     <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="220,100" >
         <Grid.RowDefinitions>
@@ -52,30 +42,30 @@
             <Button Background="Transparent" BorderBrush="Transparent" Click="BackToMainView_Click" Padding="10,0,10,0">
                 <Image Source="pack://application:,,,/Assets/Images/chevron_left.png" Stretch="UniformToFill" Width="30" Height="30"/>
             </Button>
-            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="White" Padding="0,0,0,0" Text="Historique" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="#004A86" Padding="0,0,0,0" Text="Historique" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
             <StackPanel>
                 <!-- Section for Today's Affectations -->
-                <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Margin="0,20,0,10" Text="Historique des affectations"/>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="#004A86" Margin="0,20,0,10" Text="Historique des affectations"/>
                 <ItemsControl ItemsSource="{Binding Affectations}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#80626189" Padding="20,15" Margin="0,10" CornerRadius="8">
+                            <Border Background="#80FFE08A" Padding="20,15" Margin="0,10" CornerRadius="8">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" FontSize="16" Foreground="White">
+                                    <TextBlock Grid.Column="0" FontSize="16" Foreground="#6A8FB1">
                                     <Run Text="La demande "/>
-                                    <Run Text="{Binding IdDemande}" FontWeight="SemiBold" Foreground="#FF9800"/>
+                                    <Run Text="{Binding IdDemande}" FontWeight="SemiBold" Foreground="#004A86"/>
                                     <Run Text=" est affectée au testeur "/>
-                                    <Run Text="{Binding Username}" FontWeight="SemiBold" Foreground="#FF9800"/> 
+                                    <Run Text="{Binding Username}" FontWeight="SemiBold" Foreground="#004A86"/> 
                                     </TextBlock>
 
-                                    <TextBlock Grid.Column="1" FontSize="16" Foreground="White" HorizontalAlignment="Right">
+                                    <TextBlock Grid.Column="1" FontSize="16" Foreground="#6A8FB1" HorizontalAlignment="Right">
                                     <Run FontSize="14" Text="{Binding DateCreation}"/>
                                     </TextBlock>
                                 </Grid>

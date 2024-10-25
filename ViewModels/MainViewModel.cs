@@ -1,13 +1,10 @@
 ﻿using DevExpress.Mvvm;
 using System;
 using System.ComponentModel;
-using System.Windows.Input;
-using System.Windows.Navigation;
-using AGB_AQSI_ExcelTool.Views;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Globalization;
 namespace AGB_AQSI_ExcelTool.ViewModels
 {
     public class MainViewModel : ViewModelBase, IDisposable, INotifyPropertyChanged
@@ -36,11 +33,11 @@ namespace AGB_AQSI_ExcelTool.ViewModels
             timer.Start();
         }
 
-        public string CurrentDay => _currentDateTime.ToString("dddd"); 
+        public string CurrentDay => _currentDateTime.ToString("dddd", new CultureInfo("fr-FR")); 
 
         public string CurrentTime => _currentDateTime.ToString("hh:mm tt"); 
 
-        public string CurrentDate => _currentDateTime.ToString("dd MMMM"); 
+        public string CurrentDate => _currentDateTime.ToString("dd MMMM",new CultureInfo("fr-FR")); 
 
         public event PropertyChangedEventHandler PropertyChanged;
 

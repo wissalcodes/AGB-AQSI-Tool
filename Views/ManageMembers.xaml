@@ -18,7 +18,7 @@
 
         <Style TargetType="dxe:TextEdit">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="AliceBlue" />
+            <Setter Property="Foreground" Value="#004A86" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="BorderBrush" Value="Transparent" />
 
@@ -28,16 +28,16 @@
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Margin" Value="1" />
-            <Setter Property="Background" Value="#80626189"/>
+            <Setter Property="Background" Value="#806A8FB1"/>
 
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Foreground" Value="#110E30" />
+            <Setter Property="Foreground" Value="#004A86" />
         </Style>
         <Style TargetType="CheckBox">
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Foreground" Value="AliceBlue" />
+            <Setter Property="Foreground" Value="#004A86" />
         </Style>
     </dxui:NavigationPage.Resources>
     <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="220,0" >
@@ -55,9 +55,9 @@
             <Button Background="Transparent" BorderBrush="Transparent" Click="BackToMainView_Click" Padding="10,0,10,0"> 
                 <Image Source="pack://application:,,,/Assets/Images/chevron_left.png" Stretch="UniformToFill" Width="30" Height="30"/>
             </Button>
-            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="White" Padding="0,0,0,0" Text="Gerer Les Testeurs" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock FontSize="40" FontWeight="SemiBold" Foreground="#004A86" Padding="0,0,0,0" Text="Gérer Les Testeurs" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </StackPanel>
-        <TextBlock Grid.Row="1" Foreground="White" Text="Ajouter Un Testeur" FontSize="20" FontWeight="DemiBold" Margin="0,15,0,10" />
+        <TextBlock Grid.Row="1" Foreground="#004A86" Text="Ajouter Un Testeur" FontSize="20" FontWeight="Bold" Margin="0,15,0,10" />
         <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -91,14 +91,14 @@
                 <dxe:TextEdit 
                       x:Name="PrenomTextEdit" 
                       Margin="5,0,5,0" 
-                      Text="Prenom(s)" 
+                      Text="Prénom(s)" 
                       FontSize="14" 
                       VerticalAlignment="Center" 
                         HorizontalAlignment="Left"
                      />
             </Border>
             <dx:SimpleButton Click="AjouterTesteur_Click" Height="40" Grid.Column="3" Style="{StaticResource ImportButton}">
-                <TextBlock Text="Ajouter" FontWeight="SemiBold" FontSize="16"/>
+                <TextBlock Text="Ajouter" FontWeight="SemiBold" FontSize="16" Foreground="#F0F4F8"/>
             </dx:SimpleButton>
         </Grid>
         <Grid  Grid.Row="3" Margin="0,20,0,10" Width="Auto" VerticalAlignment="Center">
@@ -107,15 +107,15 @@
                 <ColumnDefinition Width="0.6*" />
                 <ColumnDefinition Width="0.8*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Foreground="White" Text="Liste des Testeurs" FontSize="20" VerticalAlignment="Center" FontWeight="DemiBold" Grid.Column="0"/>
-            <dx:SimpleButton FontSize="12" x:Name="RemoveButton" Style="{StaticResource ImportButton}" Height="40" Background="#F44336" Grid.Column="1" Width="Auto" Margin="5" Click="SupprimerTesteur_Click" HorizontalAlignment="Stretch" >
-                <TextBlock Text="Supprimer" FontWeight="SemiBold" FontSize="16" />
+            <TextBlock Foreground="#004A86" FontWeight="Bold" Text="Liste des Testeurs" FontSize="20" VerticalAlignment="Center"  Grid.Column="0"/>
+            <dx:SimpleButton FontSize="12" x:Name="RemoveButton" Style="{StaticResource ImportButton}" Height="40"  Background="#FF8E8A" Grid.Column="1" Width="Auto" Margin="5" Click="SupprimerTesteur_Click" HorizontalAlignment="Stretch" >
+                <TextBlock Text="Supprimer" FontWeight="SemiBold" Foreground="#F0F4F8" FontSize="16" />
             </dx:SimpleButton>
             <dx:SimpleButton FontSize="12" x:Name="RemoveAllButton" Style="{StaticResource ImportButton}" Height="40" Background="#9E9E9E"  Grid.Column="2" Width="Auto" Margin="5,0,0,0" Click="SupprimerTesteurs_Click" HorizontalAlignment="Stretch">
-                <TextBlock Text="Supprimer Plusieurs" FontWeight="SemiBold" FontSize="16"/>
+                <TextBlock Text="Supprimer Plusieurs" FontWeight="SemiBold" FontSize="16"  Foreground="#F0F4F8"/>
             </dx:SimpleButton>
         </Grid>
-        <Border Background="#FF9800" Padding="15" Margin="0,0" CornerRadius="5" HorizontalAlignment="Stretch" Grid.Row="4" >
+        <Border Background="#004A86" Padding="15" Margin="0,0" CornerRadius="5" HorizontalAlignment="Stretch" Grid.Row="4" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -123,10 +123,10 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Nom d'utilisateur" FontWeight="SemiBold" FontSize="16" Foreground="#110E30"  Margin="0,0,0,0"/>
-                <TextBlock Grid.Column="1" Text="Nom" FontWeight="SemiBold"  FontSize="16"  Foreground="#110E30"  Margin="0,0,0,0"/>
-                <TextBlock Grid.Column="2" Text="Prenom" FontWeight="SemiBold" FontSize="16"  Foreground="#110E30"  Margin="0,0,0,0"/>
-                <TextBlock Grid.Column="3" HorizontalAlignment="Right" Text="Date d'ajout" FontWeight="SemiBold" FontSize="16"  Foreground="#110E30"/>
+                <TextBlock Grid.Column="0" Text="Nom d'utilisateur" FontWeight="SemiBold" FontSize="16" Foreground="#F0F4F8"  Margin="0,0,0,0"/>
+                <TextBlock Grid.Column="1" Text="Nom" FontWeight="SemiBold"  FontSize="16"  Foreground="#F0F4F8"  Margin="0,0,0,0"/>
+                <TextBlock Grid.Column="2" Text="Prenom" FontWeight="SemiBold" FontSize="16"  Foreground="#F0F4F8"  Margin="0,0,0,0"/>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Right" Text="Date d'ajout" FontWeight="SemiBold" FontSize="16"  Foreground="#F0F4F8"/>
             </Grid>
         </Border>
         <ListBox  
@@ -154,7 +154,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Background="#80626189" Padding="15" Margin="0,0" CornerRadius="5" HorizontalAlignment="Stretch" >
+                    <Border Background="#FFE08A" Padding="15" Margin="0,0" CornerRadius="5" HorizontalAlignment="Stretch" >
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -162,10 +162,10 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Name}" FontWeight="SemiBold" FontSize="16" Foreground="#FF9800" Margin="0,0,0,0"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Nom}" FontWeight="SemiBold"  FontSize="16"  Foreground="#FF9800" Margin="0,0,0,0"/>
-                            <TextBlock Grid.Column="2" Text="{Binding Prenom}" FontWeight="SemiBold" FontSize="16"  Foreground="#FF9800" Margin="0,0,0,0"/>
-                            <TextBlock Grid.Column="3" HorizontalAlignment="Right" Text="{Binding DateCreation, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" FontSize="16"  Foreground="White"/>
+                            <TextBlock Grid.Column="0" Text="{Binding Name}" FontWeight="SemiBold" FontSize="16" Foreground="#004A86" Margin="0,0,0,0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Nom}" FontWeight="SemiBold"  FontSize="16"  Foreground="#004A86" Margin="0,0,0,0"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Prenom}" FontWeight="SemiBold" FontSize="16"  Foreground="#004A86" Margin="0,0,0,0"/>
+                            <TextBlock Grid.Column="3" HorizontalAlignment="Right" Text="{Binding DateCreation, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" FontSize="16"  Foreground="#004A86"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

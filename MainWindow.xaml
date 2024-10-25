@@ -6,10 +6,11 @@
     xmlns:Views="clr-namespace:AGB_AQSI_ExcelTool.Views"
     xmlns:ViewModels="clr-namespace:AGB_AQSI_ExcelTool.ViewModels"
     xmlns:dxui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+    Icon="./Assets/Images/Logo.png"
     WindowStartupLocation="CenterScreen"
     Width="{x:Static SystemParameters.FullPrimaryScreenWidth}" 
      Height="{x:Static SystemParameters.FullPrimaryScreenHeight}"
-    Title="Gestion des demandes">
+    Title="AGB TestEase">
     <!-- Background Image -->
     <dx:ThemedWindow.Background>
         <ImageBrush ImageSource="pack://application:,,,/Assets/Images/bg.png" Stretch="UniformToFill"/>
@@ -19,6 +20,12 @@
         <dxui:NavigationFrame x:Name="navigationFrame" BackNavigationMode="PreviousScreen">
             <Views:MainView />
         </dxui:NavigationFrame>
+        <TextBlock Text="© 2024 Gulf Bank Algérie. Tous droits réservés."
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,0,10" 
+                   FontSize="12" 
+                   Foreground="#F0F4F8"/>
     </Grid>
     
 </dx:ThemedWindow>
